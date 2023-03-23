@@ -6,6 +6,7 @@ const handler = async (req, res) => {
 
     if (!email || !email.includes('@') || !name || !message) {
       res.status(422).json({ message: 'Invalid input' });
+      return;
     }
 
     try {
@@ -14,14 +15,13 @@ const handler = async (req, res) => {
       );
       const db = client.db();
       const result = await db.collection('messages').insertOne(req.body);
-      client.close();
       res.status(201).json({ message: 'Sent successfully' });
+      client.close();
+      return;
     } catch (e) {
       res.status(500).json({ message: 'Could not connect to database' });
+      return;
     }
-
-    console.log({ email, name, message });
-    res.status(201).json({ message: 'Sent successfully' });
   }
 };
 
