@@ -1,7 +1,5 @@
-import classes from './Logo.module.css';
+import classes from './Logo.module.css'
 
-const Logo = () => {
-  return <div className={classes.logo}> Alena's Blog</div>;
-};
+const Logo = () => <div className={classes.logo}>Alena's Blog</div>
 
-export default Logo;
+export default Logo

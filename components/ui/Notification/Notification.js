@@ -1,28 +1,26 @@
-import ReactDOM from 'react-dom';
-
-import classes from './Notification.module.css';
+import classes from './Notification.module.css'
 
 const Notification = (props) => {
-  const { title, message, status } = props.data;
+    const { title, message, status } = props.data
 
-  let statusClasses = '';
+    let statusClasses = ''
 
-  if (status === 'success') {
-    statusClasses = classes.success;
-  }
+    if (status === 'success') {
+        statusClasses = classes.success
+    }
 
-  if (status === 'error') {
-    statusClasses = classes.error;
-  }
+    if (status === 'error') {
+        statusClasses = classes.error
+    }
 
-  const cssClasses = `${classes.notification} ${statusClasses}`;
+    const cssClasses = `${classes.notification} ${statusClasses}`
 
-  return (
-    <div className={cssClasses}>
-      <h2>{title}</h2>
-      <p>{message}</p>
-    </div>
-  );
-};
+    return (
+        <div className={cssClasses}>
+            <h2>{title}</h2>
+            <p>{message}</p>
+        </div>
+    )
+}
 
-export default Notification;
+export default Notification
